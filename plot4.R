@@ -1,7 +1,10 @@
 dat <- setwd("/exdata_data_household_power_consumption")
 
+#read in the data:
 dat <- read.csv2(file = "household_power_consumption.txt", header = T, na.strings = "?", stringsAsFactors=FALSE)
+#change the date formate:
 dat$Date <- strptime(dat$Date, format="%d/%m/%Y")
+#subset the data of interest:
 dat <- subset(dat, dat$Date == "2007-02-01" | dat$Date == "2007-02-02")
 
 
