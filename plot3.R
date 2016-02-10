@@ -1,4 +1,13 @@
-dat <- setwd("/exdata_data_household_power_consumption")
+# Download and unzip data
+if(!file.exists('data.zip')){
+    url<-"http://archive.ics.uci.edu/ml/machine-learning-databases/00235/household_power_consumption.zip"
+    
+    download.file(url,destfile = "data.zip")
+}
+
+# Unzip the file
+unzip("data.zip")
+
 
 #read in the data:
 dat <- read.csv2(file = "household_power_consumption.txt", header = T, na.strings = "?", stringsAsFactors=FALSE)
